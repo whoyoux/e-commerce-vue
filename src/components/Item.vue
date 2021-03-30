@@ -1,17 +1,23 @@
 <template>
   <div class="item rounded shadow card">
     <img src="https://www.cnet.com/a/img/-e95qclc6pwSnGE2YccC2oLDW_8=/1200x675/2020/04/16/7d6d8ed2-e10c-4f91-b2dd-74fae951c6d8/bazaart-edit-app.jpg" @click="click" class="card-img-top" alt="...">
-    <div class="row card-body">
+    <div class="row card-body" v-if="!isAd">
+
         <div class="text-start col">
-            <h5 class="card-title" v-if="!isAd"  style="line-height: calc(300px - (0.8 * 300px))">{{name}}</h5>
-            <h5 class="card-title" v-else  style="line-height: calc(300px - (0.8 * 300px))">Ad</h5>
-        </div>
-        <div class="text-center col">
             <button class="btn btn-success" @click="addToCart">Add to cart</button>
         </div>
+
+        <div class="text-center col">
+            <h5 class="card-title" style="line-height: calc(300px - (0.8 * 300px))">{{name}}</h5>
+        </div>
+        
         <div class="text-end col">
             <h5 class="card-title" style="line-height: calc(300px - (0.8 * 300px))">25$</h5>
         </div>
+
+    </div>
+    <div class="card-body" v-else>
+        <h5 class="card-title"  style="line-height: calc(300px - (0.8 * 300px))">Ad</h5>
     </div>
   </div>
 </template>
